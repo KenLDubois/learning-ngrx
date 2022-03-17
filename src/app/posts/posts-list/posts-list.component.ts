@@ -15,6 +15,8 @@ export class PostsListComponent implements OnInit, OnDestroy {
 
   posts: Post[];
 
+  showId: boolean = false;
+
   // Used to highlight the selected product in the list
   selectedPost: Post | null;
   sub: Subscription;
