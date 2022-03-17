@@ -1,10 +1,16 @@
-<input type="checkbox" [(ngModel)]="showId" id="showId" name="showId" />
+<input
+  type="checkbox"
+  (change)="checkChanged()"
+  [checked]="showId"
+  id="showId"
+  name="showId"
+/>
 <label for="showId">Show Post Id</label>
 
 <ul *ngIf="posts">
   <li *ngFor="let post of posts" [ngClass]="{ active: selectedPost == post }">
-    <a (click)="productSelected(post)">
-      <span *ngIf="showId"> ( {{ post?.id }} ) </span>
+    <a (click)="postSelected(post)">
+      <span *ngIf="showId == true"> ( {{ post?.id }} ) </span>
       {{ post?.title }}
     </a>
   </li>
