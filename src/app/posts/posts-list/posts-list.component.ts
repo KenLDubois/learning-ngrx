@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { Post } from '../post';
 import { PostService } from '../post.service';
-import { State } from '../state/post.reducer';
+import { getShowPostId, State } from '../state/post.reducer';
 
 @Component({
   selector: 'posts-list',
@@ -36,8 +36,8 @@ export class PostsListComponent implements OnInit, OnDestroy {
     });
 
     //TODO: need to unsubscribe
-    this.store.select('posts').subscribe((posts) => {
-      this.showId = posts.showPostId;
+    this.store.select(getShowPostId).subscribe((showPostId) => {
+      this.showId = showPostId;
     });
   }
 
